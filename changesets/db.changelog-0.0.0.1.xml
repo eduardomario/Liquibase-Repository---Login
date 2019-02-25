@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog 
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd"> 
+    <!--<changeSet author="authorName" id="changelog-1.0">
+        <createTable tableName="C_PRUEBA">
+            <column name="ID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="DS_NAME" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190222-1">
+        <addColumn tableName="C_PRUEBA">
+            <column name="DS_AGE" type="INT"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190222-2">
+        <createTable tableName="Eduardo">
+            <column name="ID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="E_NAME" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>-->
+
+    <changeSet author="Eduardo" id="20190225-1">
+        <createTable tableName="Users">
+            <column name="UserName" type="VARCHAR(15)">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="First Name" type="VARCHAR(25)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Last Name" type="VARCHAR(25)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Age" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="E-Mail" type="VARCHAR(25)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Password" type="VARCHAR(30)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Address_ID" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Permissions_ID" type="VARCHAR(20)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190225-2">
+        <createTable tableName="Address">
+            <column name="Address_ID" type="INT">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Street" type="VARCHAR(50)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Colony" type="VARCHAR(25)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Number" type="VARCHAR(5)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="City" type="VARCHAR(15)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="State" type="VARCHAR(15)">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190225-3">
+        <createTable tableName="Permissions">
+            <column name="Permissions_ID" type="VARCHAR(20)">
+                <constraints nullable="true" primaryKey="true" unique="true"/>
+            </column>
+            <column name="Edit" type="BOOLEAN">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Route" type="BOOLEAN">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="Maintenance" type="BOOLEAN">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190225-4">
+        <addForeignKeyConstraint baseColumnNames="Address_ID"
+            baseTableName="Users"
+            constraintName="FK_Address_ID"
+            referencedColumnNames="Address_ID"
+            referencedTableName="Address"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190225-5">
+        <addForeignKeyConstraint baseColumnNames="Permissions_ID"
+            baseTableName="Users"
+            constraintName="FK_Permissions_ID"
+            referencedColumnNames="Permissions_ID"
+            referencedTableName="Permissions"/>
+    </changeSet>
+</databaseChangeLog> 
