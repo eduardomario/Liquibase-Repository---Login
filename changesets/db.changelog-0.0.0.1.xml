@@ -58,9 +58,6 @@
             <column name="Address_ID" type="INT">
                 <constraints nullable="true" primaryKey="false" unique="false"/>
             </column>
-            <column name="Permissions_ID" type="INT">
-                <constraints nullable="true" primaryKey="false" unique="false"/>
-            </column>
         </createTable>
     </changeSet>
 
@@ -84,6 +81,9 @@
             <column name="State" type="VARCHAR(15)">
                 <constraints nullable="true" primaryKey="false" unique="false"/>
             </column>
+            <column name="Zip_Code" type="INT">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
         </createTable>
     </changeSet>
 
@@ -95,7 +95,7 @@
             <column name="Name" type="VARCHAR(25)">
                 <constraints nullable="true" primaryKey="false" unique="false"/>
             </column>
-            <column name="Permission" type="BOOLEAN">
+            <column name="Permission" type="VARCHAR(255)">
                 <constraints nullable="true" primaryKey="false" unique="false"/>
             </column>
         </createTable>
@@ -104,7 +104,7 @@
     <changeSet author="Eduardo" id="20190225-4">
         <createTable tableName="User_Permissions">
             <column name="User_ID" type="INT">
-                <constraints nullable="true" primaryKey="true" unique="true"/>
+                <constraints nullable="true" primaryKey="false" unique="false"/>
             </column>
             <column name="Permissions_ID" type="INT">
                 <constraints nullable="true" primaryKey="false" unique="false"/>
@@ -113,6 +113,11 @@
     </changeSet>
 
     <changeSet author="Eduardo" id="20190225-5">
+        <addPrimaryKey columnNames="User_ID, Permissions_ID"
+            tableName="User_Permissions"/>
+    </changeSet>
+
+    <changeSet author="Eduardo" id="20190225-6">
         <addForeignKeyConstraint baseColumnNames="Address_ID"
             baseTableName="Users"
             constraintName="FK_Address_ID"
@@ -120,7 +125,7 @@
             referencedTableName="Address"/>
     </changeSet>
 
-    <changeSet author="Eduardo" id="20190225-6">
+    <changeSet author="Eduardo" id="20190225-7">
         <addForeignKeyConstraint baseColumnNames="User_ID"
             baseTableName="User_Permissions"
             constraintName="FK_User_ID"
@@ -128,7 +133,7 @@
             referencedTableName="Users"/>
     </changeSet>
 
-    <changeSet author="Eduardo" id="20190225-7">
+    <changeSet author="Eduardo" id="20190225-8">
         <addForeignKeyConstraint baseColumnNames="Permissions_ID"
             baseTableName="User_Permissions"
             constraintName="FK_Permissions_ID"
