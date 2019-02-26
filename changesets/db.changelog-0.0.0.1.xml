@@ -38,7 +38,7 @@
                 <constraints nullable="false" primaryKey="true" unique="true"/>
             </column>
             <column name="UserName" type="VARCHAR(15)">
-                <constraints nullable="false" primaryKey="true" unique="true"/>
+                <constraints nullable="false" primaryKey="false" unique="true"/>
             </column>
             <column name="First Name" type="VARCHAR(25)">
                 <constraints nullable="false" primaryKey="false" unique="false"/>
