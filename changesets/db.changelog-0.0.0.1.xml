@@ -113,8 +113,8 @@
     </changeSet>
 
     <changeSet author="Eduardo" id="20190225-5">
-        <addPrimaryKey columnNames="User_ID, Permissions_ID"
-            constraintName="User_Perm_PK"
+        <addUniqueConstrain columnNames="User_ID, Permissions_ID"
+            constraintName="User_Perm_CK"
             tableName="User_Permissions"/>
     </changeSet>
 
