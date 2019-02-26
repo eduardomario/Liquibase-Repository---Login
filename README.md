@@ -35,4 +35,4 @@ Mas detalles en:
     liquibase --changeLogFile="changesets/db.changelog-#.#.#.#.xml" diffChangeLog
 
 #### Git Flow Rules
-#### Hola :D
+#### Hola XD
